@@ -8,12 +8,23 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
+    
     - uses: actions/checkout@v2
+    
     - name: make
+      run: make
+      
+    - name: move binaries
       run: |
-        make
-        ls
+        mkdir upload
+        mv ./CASBACnetStackCompileTest ./upload/
+    
+    - name: upload artifact
+    - uses: actions/upload-artifact@v2
+      with:
+        name: binary
+        path: upload
+    
+        

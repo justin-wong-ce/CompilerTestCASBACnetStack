@@ -5,12 +5,15 @@ on:
   pull_request:
 
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
     steps:
-    
     - uses: actions/checkout@v2
-    
+  
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
     - name: make
       run: make
       
@@ -19,10 +22,20 @@ jobs:
         mkdir upload
         mv ./CASBACnetStackCompileTest ./upload/
     
-    - name: upload artifact
+    - name: upload artifacts
       uses: actions/upload-artifact@v2
       with:
         name: binary
         path: upload
+    
+  access-artifact:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: download artifact
+      uses: actions/download-artifact@v2
+      with: 
+        name: binary
+        path: ./test-download/
     
         

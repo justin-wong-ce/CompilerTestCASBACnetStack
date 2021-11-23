@@ -31,7 +31,7 @@ jobs:
     - name: upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: binary
+        name: CASBACnetStackCompileTest.o
         path: upload
     
   access-artifact:
@@ -41,7 +41,7 @@ jobs:
     - name: download artifact
       uses: actions/download-artifact@v2
       with: 
-        name: binary
+        name: CASBACnetStackCompileTest.o
         path: ./test-download/
     
         

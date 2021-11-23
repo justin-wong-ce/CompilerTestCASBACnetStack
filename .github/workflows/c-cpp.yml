@@ -5,15 +5,17 @@ on:
   pull_request:
 
 jobs:
-  setup:
+  bogus-setup:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
   
-  build:
-    needs: setup
+  build-and-setup:
     runs-on: ubuntu-latest
     steps:
+    - name: checkout repo
+      uses: actions/checkout@v2
+    
     - name: make
       run: make
       
@@ -29,7 +31,7 @@ jobs:
         path: upload
     
   access-artifact:
-    needs: build
+    needs: build-and-setup
     runs-on: ubuntu-latest
     steps:
     - name: download artifact

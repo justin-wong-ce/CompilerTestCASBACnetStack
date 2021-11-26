@@ -30,10 +30,10 @@ jobs:
         path: Linux_CASBACnetStackCompileTest.zip
     
   windows-build:
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
     - name: Setup msbuild
-      uses: microsoft/setup-msbuild@v1.1
+      uses: microsoft/setup-msbuild@v1.0.3
     
     - name: Checkout repo
       uses: actions/checkout@v2

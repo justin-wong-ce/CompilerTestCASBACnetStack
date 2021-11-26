@@ -13,6 +13,9 @@ jobs:
     - name: Make
       run: make
       
+    - name: check ref
+      run: echo ${{ github.ref }}
+      
     - name: Move binaries
       run: |
         mkdir build

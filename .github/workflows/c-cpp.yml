@@ -72,11 +72,6 @@ jobs:
           draft: false
           prerelease: false
           
-      - name: Check release files
-        run: |
-          ls
-          ls CASBACnetStackCompileTest
-          
       - name: Upload Windows
         uses: actions/upload-release-asset@v1
         env:

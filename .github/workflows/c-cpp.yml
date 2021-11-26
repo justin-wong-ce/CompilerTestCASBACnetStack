@@ -46,8 +46,8 @@ jobs:
       
     - name: Zip build
       run: |
-      powershell Compress-Archive build Windows_CASBACnetStackCompileTest.zip
-      dir
+        powershell Compress-Archive build Windows_CASBACnetStackCompileTest.zip
+        dir
       
     - name: Upload artifact
       uses: actions/upload-artifact@v2

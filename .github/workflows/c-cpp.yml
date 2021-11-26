@@ -45,7 +45,9 @@ jobs:
       run: msbuild CASBACnetStackCompileTest.sln /p:Configuration=Release /p:Platform="x64" /p:OutputPath=.\build\
       
     - name: Zip build
-      run: powershell Compress-Archive build Windows_CASBACnetStackCompileTest.zip
+      run: |
+      powershell Compress-Archive build Windows_CASBACnetStackCompileTest.zip
+      dir
       
     - name: Upload artifact
       uses: actions/upload-artifact@v2

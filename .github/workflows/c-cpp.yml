@@ -13,8 +13,10 @@ jobs:
     - name: Make
       run: make
       
-    - name: check ref
-      run: echo ${{ github.ref }}
+    - name: Check git event and event name
+      run: |
+        echo ${{ github.event }}
+        echo ${{ github.event_name }}
       
     - name: Move binaries
       run: |
@@ -55,7 +57,7 @@ jobs:
   publish-release:
     needs: [linux-build, windows-build]
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true && github.ref == 'refs/heads/actions-test'
+    if: github.event_name == 'pull_request' && github.ref == 'refs/heads/actions-test'
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v2

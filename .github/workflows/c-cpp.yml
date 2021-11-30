@@ -9,7 +9,7 @@ jobs:
     container: node:latest
     steps:
     - run: |
-        echo node -v
+        node -v
     
   linux-build:
     runs-on: ubuntu-latest

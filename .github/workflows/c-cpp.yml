@@ -6,7 +6,8 @@ on:
 jobs:
   test-docker:
     runs-on: ubuntu-latest
-    container: node:latest
+    # Use older version of node to make sure we are actually using the container
+    container: node:12.22.7-alpine
     steps:
     - run: |
         node -v

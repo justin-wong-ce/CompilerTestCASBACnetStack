@@ -57,7 +57,8 @@ jobs:
   publish-release:
     needs: [linux-build, windows-build]
     runs-on: ubuntu-latest
-    if: github.event_name == 'pull_request' && github.ref == 'refs/heads/actions-test'
+    # Release only on tag push
+    if: github.ref == 'refs/tags/v*'
     steps:
       - name: Download artifacts
         uses: actions/download-artifact@v2

@@ -4,6 +4,13 @@ on:
   push:
 
 jobs:
+  test-docker:
+    runs-on: ubuntu-latest
+    container: node:latest
+    steps:
+    - run: |
+        echo node -v
+    
   linux-build:
     runs-on: ubuntu-latest
     steps:
